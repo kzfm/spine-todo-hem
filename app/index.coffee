@@ -7,7 +7,7 @@ Tasks = require('controllers/tasks')
 class TaskApp extends Spine.Controller
   events:
     "submit form":   "create"
-    "click  .clear": "clear"
+    "click  .clear": "cleartask"
 
   elements:
     ".items":     "items"
@@ -34,7 +34,7 @@ class TaskApp extends Spine.Controller
     Task.create(name: @input.val())
     @input.val("")
 
-  clear: ->
+  cleartask: ->
     Task.destroyDone()
 
   renderCount: =>
